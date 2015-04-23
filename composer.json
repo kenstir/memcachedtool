@@ -1,0 +1,31 @@
+{
+    "name": "joelvardy/memcachedtool",
+    "description": "Command line application for easily accessing items in a memcache store.",
+    "keywords": [
+        "memcache",
+        "memcached"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joel Vardy",
+            "email": "info@joelvardy.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Joelvardy\\Memcached\\Console\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "ext-memcached": "*",
+        "symfony/console": "~2.6",
+        "jimmiw/php-time-ago": "~0.3",
+        "gabrielelana/byte-units": "~0.2"
+    },
+    "bin": [
+        "memcachedtool"
+    ],
+    "minimum-stability": "dev"
+}

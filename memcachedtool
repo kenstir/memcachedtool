@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+set_time_limit(0);
+date_default_timezone_set('UTC');
+
+if (file_exists(__DIR__.'/../../autoload.php')) {
+    require(__DIR__.'/../../autoload.php');
+} else {
+    require(__DIR__.'/vendor/autoload.php');
+}
+
+use Symfony\Component\Console\Application;
+
+$app = new Application('memcachedtool', '1.0.0');
+
+$app->add(new Joelvardy\Memcached\Console\Stats);
+$app->add(new Joelvardy\Memcached\Console\Keys);
+$app->add(new Joelvardy\Memcached\Console\Delete);
+
+$app->run();
