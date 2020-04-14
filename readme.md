@@ -11,6 +11,7 @@ This is a simple command line tool allowing you to:
 To build:
 
 ```
+sudo yum -y install composer php php-pecl-memcached
 composer install
 ```
 
@@ -21,28 +22,28 @@ The default Memcached host and port will be used unless specified, to specify th
 ### Stats
 
 ```
-memcachedtool stats --host 10.22.1.236
+./memcachedtool stats --host 10.22.1.236
 ```
 
 ### List Keys
 
 ```
 # All keys
-memcachedtool keys --host 10.22.1.236
+./memcachedtool keys --host 10.22.1.236
 
 # Keys matching regex
-memcachedtool keys --host 10.22.1.236 --regex "/^post_2_(.*)$/"
+./memcachedtool keys --host 10.22.1.236 --regex "/^post_2_(.*)$/"
 ```
 
 ### Delete Keys
 
 ```
 # All keys
-memcachedtool delete --all
+./memcachedtool delete --all
 
 # Keys matching regex
-memcachedtool delete --regex "/^key_2_(.*)$/"
+./memcachedtool delete --regex "/^key_2_(.*)$/"
 
 # Values matching regex
-memcachedtool delete --vregex "/^value_2_(.*)$/"
+./memcachedtool delete --vregex "/^value_2_(.*)$/"
 ```
