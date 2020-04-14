@@ -2,25 +2,16 @@
 
 This is a simple command line tool allowing you to:
 
- * View basic stats about a Memcached server.
- * List keys on a Memcached server (including regex lookups.)
- * Delete keys on a Memcached server (including regex lookups.)
+ * View basic stats about a Memcached server
+ * List keys on a Memcached server (including by regex)
+ * Delete keys on a Memcached server (including by regex)
 
-## Installation
+## Building on CentOS
 
-To install globally on your system run:
-
-```
-composer global require joelvardy/memcachedtool
-```
-
-### Your Path
-
-To make binaries installed with Composer available globally you must add `$COMPOSER_HOME/vendor/bin` to your path, for example:
+To build:
 
 ```
-echo "PATH=\$PATH:\$HOME/.composer/vendor/bin" >> ~/.bashrc
-source ~/.bashrc
+composer install
 ```
 
 ## Commands
@@ -30,17 +21,17 @@ The default Memcached host and port will be used unless specified, to specify th
 ### Stats
 
 ```
-memcachedtool stats
+memcachedtool stats --host 10.22.1.236
 ```
 
 ### List Keys
 
 ```
 # All keys
-memcachedtool keys
+memcachedtool keys --host 10.22.1.236
 
-# Keys matching expression
-memcachedtool keys --regex "/^post_2_(.*)$/"
+# Keys matching regex
+memcachedtool keys --host 10.22.1.236 --regex "/^post_2_(.*)$/"
 ```
 
 ### Delete Keys
@@ -49,6 +40,9 @@ memcachedtool keys --regex "/^post_2_(.*)$/"
 # All keys
 memcachedtool delete --all
 
-# Keys matching expression
-memcachedtool delete --regex "/^post_2_(.*)$/"
+# Keys matching regex
+memcachedtool delete --regex "/^key_2_(.*)$/"
+
+# Values matching regex
+memcachedtool delete --vregex "/^value_2_(.*)$/"
 ```
